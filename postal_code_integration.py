@@ -2,6 +2,8 @@ import requests
 import pandas as panda
 import sqlite3
 import os
+import logging
+from datetime import datetime
 
 
 class InitDatas:
@@ -12,6 +14,8 @@ class InitDatas:
         url = "https://datanova.laposte.fr/data-fair/api/v1/datasets/laposte-hexasmal/raw"
         req = requests.get(url, allow_redirects=True)
         open('postal_codes.csv', 'wb').write(req.content)
+        logging.info("Fichier .csv téléchargé à : {0}".format(datetime.now().strftime("%H:%M:%S")))
+        logging.info("La taille du fichier récupéré est de : {0}".format())
 
     def insert_data_in_db(self):
         if os.path.exists("postal_codes.db"):

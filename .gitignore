@@ -1,3 +1,4 @@
 postal_codes.csv
 postal_codes.db
 /venv
+__pycache__/postal_city_search.cpython-310.pyc
